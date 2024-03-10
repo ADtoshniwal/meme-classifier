@@ -6,7 +6,7 @@ import tensorflow as tf
 import numpy as np
 os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
 # Load model
-model = tf.keras.models.load_model('imageclassifier_44mb.h5')
+model = tf.keras.models.load_model('imageclassifier_44mb.h5',compile = False)
 
 # Function to classify image as meme or normal photo
 def classify_image(image):
