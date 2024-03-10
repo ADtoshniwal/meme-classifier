@@ -68,6 +68,11 @@ if regular_images:
     for img_name in regular_images:
         st.image(f'regular/{img_name}', use_column_width=True)
 
+    if st.button('Delete All Regular Image'):
+        for img_name in regular_images:
+            delete_meme(f'regular/{img_name}')
+
+
 if memes_images:
     st.header('Memes:')
     for img_name in memes_images:

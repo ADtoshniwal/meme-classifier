@@ -34,6 +34,8 @@ smmap==5.0.1
 streamlit==1.31.1
 tenacity==8.2.3
 tensorflow==2.8.0
+toml==0.10.2
+toolz==0.12.1
 tornado==6.4
 typing_extensions==4.10.0
 tzdata==2024.1
