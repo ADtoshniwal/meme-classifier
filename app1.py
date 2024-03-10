@@ -4,7 +4,7 @@ import shutil
 from PIL import Image
 import tensorflow as tf
 import numpy as np
-
+os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
 # Load model
 model = tf.keras.models.load_model('imageclassifier_44mb.h5')
 
