@@ -1,12 +1,12 @@
 import streamlit as st
 import os
-import shutil
 from PIL import Image
 import tensorflow as tf
 import numpy as np
+
 os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
 # Load model
-model = tf.keras.models.load_model('imageclassifier_44mb.h5',compile = False)
+model = tf.keras.models.load_model('imageclassifier_44mb.h5', compile=False)
 
 # Function to classify image as meme or normal photo
 def classify_image(image):
@@ -56,9 +56,6 @@ if uploaded_files:
         with open(os.path.join(dest_dir, uploaded_file.name), "wb") as f:
             f.write(uploaded_file.getbuffer())
 
-        # Delete the uploaded file
-        uploaded_file.close()
-
 # Display images and delete options
 regular_images = os.listdir('regular') if os.path.exists('regular') else []
 memes_images = os.listdir('memes') if os.path.exists('memes') else []
@@ -66,19 +63,19 @@ memes_images = os.listdir('memes') if os.path.exists('memes') else []
 if regular_images:
     st.header('Regular Photos:')
     for img_name in regular_images:
-        st.image(f'regular/{img_name}', use_column_width=True)
+        st.image(f'./regular/{img_name}', use_column_width=True)
 
     if st.button('Delete All Regular Image'):
         for img_name in regular_images:
-            delete_meme(f'regular/{img_name}')
+            delete_meme(f'./regular/{img_name}')
 
 
 if memes_images:
     st.header('Memes:')
     for img_name in memes_images:
-        st.image(f'memes/{img_name}', use_column_width=True)
+        st.image(f'./memes/{img_name}', use_column_width=True)
 
     # Option to delete all memes
     if st.button('Delete All Memes'):
         for img_name in memes_images:
-            delete_meme(f'memes/{img_name}')
+            delete_meme(f'./memes/{img_name}')
